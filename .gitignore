@@ -8,3 +8,11 @@
 *.pyc
 .env
 dist
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+
+# Playwright
+.playwright-cli/
