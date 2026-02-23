@@ -1,3 +1,17 @@
+# Add this near the top (after the imports):
+import os
+# Add this after app is created, before include_router:
+allowed_origins = os.environ.get("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000")
+origins = [o.strip() for o in allowed_origins.split(",") if o.strip()]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Change from hardcoded to this
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 from __future__ import annotations
 
 import sys
